@@ -6,18 +6,10 @@ Google allows you to do an advanced search that filters results to the last Year
 If you click this bookmark, it will add the "Past Year" filter to the current google search, or open google with the past year filter set.
 
 ### Install
-Make a new bookmark and add this as the URL:
+Look at the source first. Don't just run other people's JS from your browser. 
+
+After looking at the code, make a new bookmark and add this as the URL:
 
 ```
-javascript:(function(){
-  var searchHost = "https://www.google.com";
-  var appendPastYear = function(url) {
-    var pastYear = '&tbs=qdr:y';
-    return window.location.href = url+'?'+pastYear;
-  };
-  if (window.origin === searchHost) {
-    return appendPastYear(window.location.href);
-  }
-  return appendPastYear(searchHost);
-})();
+javascript:(function(){var searchHost="https://www.google.com";var appendPastYear=function(url){var pastYear="&tbs=qdr:y";return window.location.href=url+"?"+pastYear};if(window.origin===searchHost)return appendPastYear(window.location.href);return appendPastYear(searchHost)})();
 ```
